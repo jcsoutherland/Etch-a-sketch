@@ -45,19 +45,22 @@ const checkValidDivs = (div) => {
   return divArray
 }
 
-const fillGrid = (eDiv, gridDivs) => {
-  console.log(eDiv, gridDivs)
+const fillGrid = (eDiv, gridDivs, currColor) => {
   let divArray = checkValidDivs(eDiv)
   divArray.forEach((id) => {
-    if (gridDivs[id].style.backgroundColor !== brushColor) {
+    if (
+      gridDivs[id].style.backgroundColor !== brushColor &&
+      gridDivs[id].style.backgroundColor === currColor
+    ) {
       gridDivs[id].style.backgroundColor = brushColor
       const currDiv = gridDivs[id]
       if (currDiv !== eDiv) {
         //console.log(currDiv, e.target)
-        fillGrid(currDiv, gridDivs)
+        fillGrid(currDiv, gridDivs, currColor)
       }
     }
   })
+
   //fill logic
   //check color of divs around the current div
   //if div is color of div first clicked
@@ -69,8 +72,9 @@ const fillGrid = (eDiv, gridDivs) => {
 const singleGridDrawHandler = (e) => {
   console.log(brushMode)
   if (brushMode === 'fill' && e.target.style.backgroundColor !== brushColor) {
+    const currColor = e.target.style.backgroundColor
     const gridDivs = getGridDivs()
-    fillGrid(e.target, gridDivs)
+    fillGrid(e.target, gridDivs, currColor)
   } else {
     e.target.style.backgroundColor = brushColor
   }
