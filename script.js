@@ -92,7 +92,6 @@ const makeGrid = (size) => {
     let gridBlock = document.createElement('div')
     gridBlock.className = 'grid-block'
     gridBlock.id = i
-    //gridBlock.innerHTML = i
     gridBlock.addEventListener('mouseover', gridDrawHandler)
     gridBlock.addEventListener('click', singleGridDrawHandler)
     gridContainer.appendChild(gridBlock)
@@ -138,6 +137,7 @@ brushBtn.addEventListener('click', () => {
 eraserBtn.addEventListener('click', () => {
   lastBrushColor = brushColor
   brushColor = 'white'
+  brushMode = 'brush'
   eraserBtn.style.backgroundColor = 'lightgray'
   brushBtn.style.backgroundColor = 'rgb(240, 240, 240)'
   resetBtn.style.backgroundColor = 'rgb(240, 240, 240)'
@@ -190,10 +190,12 @@ const fillHandler = () => {
   //set tool to fill
   brushMode = 'fill'
   fillDiv.style.backgroundColor = 'lightgray'
-  brushBtn.style.outline = `2px solid ${brushColor}`
-  brushBtn.style.backgroundColor = 'lightgray'
-  eraserBtn.style.backgroundColor = 'rgb(240, 240, 240)'
-  resetBtn.style.backgroundColor = 'rgb(240, 240, 240)'
+  if (brushColor !== 'white') {
+    brushBtn.style.outline = `2px solid ${brushColor}`
+    brushBtn.style.backgroundColor = 'lightgray'
+    eraserBtn.style.backgroundColor = 'rgb(240, 240, 240)'
+    resetBtn.style.backgroundColor = 'rgb(240, 240, 240)'
+  }
 }
 
 fillDiv.className = 'fill-div'
