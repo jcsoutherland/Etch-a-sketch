@@ -90,8 +90,14 @@ button {
   gap: 5px;
 }
 
-.color-div {
+.color-div,
+.fill-div {
   width: 32px;
   height: 32px;
   outline: 2px solid black;
+}
+
+.fill-img {
+  width: 100%;
+  height: auto;
 }
