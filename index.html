@@ -9,6 +9,33 @@
     <title>Etch-a-Sketch</title>
   </head>
   <body>
-    <div class="grid-container"></div>
+    <h1 class="title">Etcha-a-Sketch</h1>
+    <div class="overall-container">
+      <div class="button-container">
+        <button id="brush">BRUSH</button>
+        <button id="eraser">ERASER</button>
+        <button id="reset">RESET</button>
+      </div>
+      <div class="grid-container"></div>
+      <div class="placeholder"></div>
+    </div>
+    <div class="color-container"></div>
+    <div class="slide-container">
+      <label
+        class="size-label"
+        for="myRange"
+        style="font-weight: 700; font-size: 18px"
+        >Canvas Size: 16 x 16
+      </label>
+      <input
+        type="range"
+        min="8"
+        max="64"
+        value="16"
+        class="slider"
+        id="myRange"
+        step="8"
+      />
+    </div>
   </body>
 </html>
