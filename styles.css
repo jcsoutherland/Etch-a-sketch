@@ -1,0 +1,12 @@
+.grid-container {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.grid-block {
+  border: 1px solid black;
+}
